@@ -1,0 +1,38 @@
+\documentclass[border=0.4cm]{standalone}
+\usepackage{amsmath,amsfonts}
+\usepackage{tikz}
+\begin{document}
+  \begin{tikzpicture}
+  	\tikzstyle{coor} = [line width=0.5pt,>=stealth,->]
+				\tikzstyle{format}=[font=\tiny]
+				\tikzstyle{graph} = [thick,blue]
+				\tikzstyle{point} = [color=red,fill=red]
+				%%%%
+
+			%% coordenadas
+			\draw[coor](0,0)--(3,0) node[format,right]{$x$};
+			\draw[coor](0,0)--(0,3) node[format,above left]{$y$};
+			%%%%
+
+				%% Grid
+				\draw[help lines,dashed,step=0.5cm,opacity=0.5] (0,0) grid (2.8,2.8);
+				%%%%
+				
+			%% funcion
+      %\clip (-1cm,-0.2cm) rectangle (3cm,3cm);
+			\draw[graph] plot[domain=0:2,samples=50] ({\x},{(\x-1)^2+1}) node[format,above=0.5cm, left=-0.5cm,fill=white]{$f(x)=(x-1)^2+1$};
+			%%%%
+
+			%%puntos
+			\coordinate (O) at (0,0);
+			\coordinate (A) at (0,1);
+			\coordinate (B) at (1,0);
+      \coordinate (C) at (1,1);
+      \draw[point](B)circle(0.5pt) node[black,below=-2pt,format]{$(1,0)$};
+      \draw[point](C)circle(1pt);
+      \draw[densely dashed](A)-|(B);
+      \draw[point](O)circle(0.5pt) node[black,below left=-2.5pt, format]{$O$};
+      \draw[point](A)circle(0.5pt) node[black,left,format]{$(0,1)$};
+      %%%%
+  \end{tikzpicture}
+\end{document}
